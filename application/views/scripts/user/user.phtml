@@ -1,0 +1,92 @@
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-9">
+<style>
+    div#wrapper
+    {
+        color: #FFFFFF;
+        background-color: #0398CA;
+        overflow:auto;
+        background-image:url(<?php echo $this->BackgroundURL ?>);
+    }
+
+    div#welcome
+    {
+        color: #FFFFFF;
+        background-color: #0398CA;
+        float:left;
+        width:700px;
+        background-image:url(<?php echo $this->BackgroundURL ?>);
+
+    }
+
+    div#more-information
+    {
+
+        color: #FFFFFF;
+        background-color:#91BE3F
+    }
+
+    div#tweets
+    {
+        background-color: <?php echo $this->BGColor ?>;
+        color: <?php echo $this->textColor ?>;
+        text-line-through-style: double;
+        charset: ISO-8859-9;
+        text-shadow: darkSlateGray;
+        font-family: sans-serif;
+    } 
+    div#toptweets
+    {
+        background-image:url('http://4.bp.blogspot.com/_ZAN_S2kl6TY/SwOGLCduiKI/AAAAAAAAALA/fdtpApkfVLY/s1600/The+Bird.png');
+        float:left;
+        color: green;
+        width:500px;
+        overflow: hidden; 
+    }
+
+</style>
+<div id="wrapper">
+    <div id="welcome">
+        <h1><?php echo $this->UserName ?>'s Twitter </h1>
+
+        <div id="more-information">
+            <p>
+                My Link: <br />
+                <a href=<?php echo $this->URL; ?>><?php echo $this->UserName; ?>'s Website</a>
+            </p>
+            <p>
+                I am now tweeting from: <br />
+                <?php echo $this->Location; ?> in  <?php echo $this->Lang; ?>
+            </p>
+
+            <p>
+                How i describe myself: <br />
+                <?php echo $this->Description; ?>
+            </p>
+            <p>
+                I have :  <?php echo $this->FollowerCount; ?>  followers
+            </p>
+
+        </div>
+        <br>
+        <div id="tweets">
+            <?php
+            foreach ($this->tweetarr as $tweet) {
+                echo $tweet['text'];
+                ?>
+                <br/>
+                <?php
+            }
+            ?>
+        </div>
+
+    </div>
+    <div id="toptweets">
+
+        <h1>Top Tweets of today </h1>
+        <?php foreach ($this->TTarr as $tt) { ?>
+            <a href=<?php echo $tt['url']; ?>><?php echo $tt['name']; ?></a><br/>
+            <?php
+        }
+        ?>
+    </div>
+</div>
